@@ -23,38 +23,45 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="{% url 'home' %}" class="nav-link " style="color:#088A85 ">Home</a>
+                        <a href="{% url 'home' %}" class="nav-link " style="color:#088A85;font-size:20px ">Home</a>
                     </li>
 
 
-                    <li class="nav-item inline ">
-                        <p class="nav-link " style="color:#088A85 ">
+                    <li class="nav-item inline">
+                        <p class="nav-link " style="color:#088A85;">
                             {% if user.is_authenticated %}
                             <li class="nav-item ">
-                                <a href="{% url 'userhome' pk=2 %} " class="nav-link " style="color:#088A85 ">Profile</a>
+                                <a href="{% url 'userhome' pk=2 %} " class="nav-link " style="color:#088A85;font-size:20px">Profile</a>
                             </li>
                             <li class="nav-item ">
-                                <a href="{% url 'gre' %} " class="nav-link " style="color:#088A85 ">Check For GRE</a>
+                                <a href="{% url 'gre' %} " class="nav-link " style="color:#088A85;font-size:20px">Check For GRE</a>
                             </li>
                             <li class="nav-item ">
-                                <a href="{% url 'toefl' %} " class="nav-link " style="color:#088A85 ">Check For TOEFL</a>
+                                <a href="{% url 'toefl' %} " class="nav-link " style="color:#088A85;font-size:20px ">Check For TOEFL</a>
                             </li>
-                            Hello, {{ user.first_name }}
-                            <button type="button " class="btn btn-outline-primary "><a href ="{% url 'logout' %} ">Logout</a></button> {% else %}
+                            <li class="nav-item">
+                                <p class="nav-link " style="color:#088A85;font-size:20px ">
+                                    Hello, {{ user.first_name }}
+                                    <button type="button " class="btn btn-outline-primary "><a href ="{% url 'logout' %} ">Logout</a></button>
+                                </p>
+                            </li>
+                            {% else %}
                             <li class="nav-item ">
-                                <a href="#about " class="nav-link " style="color:#088A85 ">About</a>
+                                <a href="#about " class="nav-link " style="color:#088A85;font-size:20px ">About</a>
                             </li>
                             <li class="nav-item ">
-                                <a href="#authors " class="nav-link " style="color:#088A85 ">Testimonials</a>
+                                <a href="#authors " class="nav-link " style="color:#088A85;font-size:20px ">Testimonials</a>
                             </li>
                             <li class="nav-item ">
-                                <a href="#contact " class="nav-link " style="color:#088A85 ">Contact</a>
+                                <a href="#contact " class="nav-link " style="color:#088A85;font-size:20px ">Contact</a>
                             </li>
                             <li class="nav-item ">
-                                <a href="{% url 'social:begin' 'google-oauth2' %} " class="btn btn-block btn-light ">
+                                <p class="nav-link" style="color:#088A85;">
+                                    <a href="{% url 'social:begin' 'google-oauth2' %} " class="btn btn-block btn-light ">
                                     {% comment %} <i class="fa fa-google-plus visible-xs "></i> {% endcomment %}
-                                    <span class="hidden-xs nav-link " style="color:#088A85 ">Google+</span>
+                                    <span class="hidden-xs">Google+</span>
                                 </a>
+                                </p>
                             </li>
                             {% endif %}
                         </p>

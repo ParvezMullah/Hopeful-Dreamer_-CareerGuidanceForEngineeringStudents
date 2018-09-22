@@ -3,8 +3,8 @@
 
 <title> {% block title %} GRE {% endblock title %} </title>
 {% block block %} {% if object_list %}
-<table class="table table-striped">
-    <thead class="thead-dark">
+<table class="table table-striped" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+    <thead class="thead-dark" style="background-color:#088A85;color:white;">
         <tr>
             <th>#</th>
             <th>University</th>
@@ -16,7 +16,7 @@
         </tr>
     </thead>
     {% for object in object_list %}
-    <tr>
+    <tr style="background-color: #E0F8F7">
         <td>{{forloop.counter}}</td>
         <td> {{object.University | upper}} </td>
         <td> {{object.country }} </td>
