@@ -42,6 +42,9 @@ class UserProfile(models.Model):
     preferred_country = models.CharField(
         choices=country, max_length=40, default='all')
 
+    def __str__(self):
+        return self.full_name
+
 
 class University(models.Model):
     University = models.CharField(max_length=50)
@@ -57,3 +60,6 @@ class University(models.Model):
 
     class Meta:
         db_table = 'university'
+
+    def __str__(self):
+        return self.University
