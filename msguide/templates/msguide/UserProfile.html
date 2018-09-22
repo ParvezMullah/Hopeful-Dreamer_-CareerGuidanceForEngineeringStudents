@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-
-<head>
-    {% load crispy_forms_tags %}
-</head>
-
-<body>
+{% include 'msguide/header.html' %} {% block block %} {% load crispy_forms_tags %} {% if messages %}
+<div class="container">
+    <br/><br/>
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8 bg-light text-dark">
-            <form action="" method="post"> {% csrf_token %} {{form|crispy}}
-                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Update">
-            </form>
+        <div class="col-3"></div>
+        <div class="col-6 col-sm-offset-2">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true"> &times;</span>
+                        </button> {% for message in messages %} {{ message }} {% endfor %}
+            </div>
         </div>
+        <div class="col-3"></div>
     </div>
-</body>
-
-</html>
+</div>
+{% endif %}
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 bg-light text-dark">
+        <form action="" method="post"> {% csrf_token %} {{form|crispy}}
+            <input class="btn btn-primary btn-lg" type="submit" value="Update">
+        </form>
+    </div>
+</div>
+{% endblock block %}

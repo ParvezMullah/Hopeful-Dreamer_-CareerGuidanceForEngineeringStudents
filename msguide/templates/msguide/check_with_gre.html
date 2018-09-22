@@ -1,0 +1,55 @@
+{% include 'msguide/header.html' %}
+
+
+<title> {% block title %} GRE {% endblock title %} </title>
+{% block block %} {% if object_list %}
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>University</th>
+            <th>Country</th>
+            <th>Fees In Lakhs</th>
+            <th>Grade</th>
+            <th>Overall Rating</th>
+            <th>GRE_Verbal</th>
+            <th>GRE_Writing</th>
+            <th>GRE_Quantitative</th>
+            <th>GRE_Percentile</th>
+        </tr>
+    </thead>
+    {% for object in object_list %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td> {{object.University | upper}} </td>
+        <td> {{object.country }} </td>
+        <td> {{object.fees_in_lakhs | upper}} </td>
+        <td> {{object.grade | upper}} </td>
+        <td> {{object.overall_rating | upper}} </td>
+        <td> {{object.gre_verbal | upper}} </td>
+        <td> {{object.gre_writing | upper}} </td>
+        <td> {{object.gre_quantitative | upper}} </td>
+        <td> {{object.gre_percentile | upper}} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>No Result Found</h2>
+{% endif %} {% if is_paginated %}
+<ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+    {% else %}
+    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
+    {% endif %} {% for i in paginator.page_range %} {% if page_obj.number == i %}
+    <li class="page-item active"><a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></span></a> </li>
+    {% else %}
+    <li><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+    {% endif %} {% endfor %} {% if page_obj.has_next %}
+    <li><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+    {% else %}
+    <li class="page-item disabled"> <a class="page-link " href="# " tabindex="-1 ">Next</a></li>
+
+    {% endif %}
+</ul>
+{% endif %} {% endblock block %}
